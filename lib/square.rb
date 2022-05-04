@@ -6,13 +6,21 @@ require_relative 'miscellaneous'
 class Square
   include Miscellaneous
 
-  def initialize(name, color)
-    @name = name
+  attr_accessor :taken, :piece
+
+  def initialize(color)
     @color = paint(color)
     @taken = false
   end
 
+  def paint(color)
+    color == 'gray' ? gray : black
+  end
+
   def to_s
-    "#{@name}: #{@color}"
+    @color
   end
 end
+
+s = Square.new('black')
+puts s

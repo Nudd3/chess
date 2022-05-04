@@ -3,12 +3,12 @@
 # This module will be used for getting the different
 # icons needed for the chess game
 module Miscellaneous
-  def gray(string)
-    "\e[47m #{string} \e[0m"
+  def gray
+    "\e[47m   \e[0m"
   end
 
-  def black(string)
-    "\e[40m#{string}\e[0m"
+  def black
+    "\e[40m   \e[0m"
   end
 
   def king
@@ -33,5 +33,9 @@ module Miscellaneous
 
   def pawn
     "\u2659"
+  end
+
+  def test
+    "\e[40m \u2660 \e[0m"
   end
 end
