@@ -11,10 +11,8 @@ class Piece
   #   - All move
   #   - Possible moves
 
-  def initialize(name, color, icon, moves, position)
-    @name = name
+  def initialize(color, icon, moves, position)
     @color = color
-    @icon = icon
     @moves = []
     @position = position
   end
