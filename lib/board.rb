@@ -2,13 +2,17 @@
 
 require_relative 'miscellaneous'
 require_relative 'square'
+require_relative '../lib/pieces/piece'
 
 # Board class
 class Board
   include Miscellaneous
 
+  attr_accessor :board
+
   def initialize
     @board = Array.new(8) { Array.new(8) }
+    build_board
   end
 
   # Fill the 2d array with squares
@@ -16,7 +20,7 @@ class Board
     color = 1
     @board.each_index do |i|
       @board[i].each_index do |j|
-        @board[i][j] = color.odd? ? Square.new('gray') : Square.new('black')
+        @board[i][j] = color.odd? ? Square.new('gray', [i, j]) : Square.new('black', [i, j])
         color += 1
       end
       color += 1
@@ -36,10 +40,3 @@ class Board
     puts '    a  b  c  d  e  f  g  h'
   end
 end
-
-b = Board.new
-b.build_board
-b.print_board
-
-# [0][0] = White
-# [7][0] = Black

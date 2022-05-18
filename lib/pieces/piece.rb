@@ -11,20 +11,34 @@ class Piece
   #   - All move
   #   - Possible moves
 
-  def initialize(color, icon, moves, position)
+  def initialize(color, position, board)
     @color = color
     @moves = []
     @position = position
+    @board = board
   end
 
   # move a piece to a new location
   # since this class will be inherited from later on, this method is created here to work according to
   # DRY, meaning I won't have to implement this same method for each of the different pieces.
-  def move(destination)
-    @position = destination if possible_move?(destination)
+  def move
+    # Calculate the possible squares a piece can reach
+    if possible_move?(destination)
+      # Remove piece from square (current location)
+      @position = destination
+      # Add piece to square (new location)
+    end
+  end
+
+  def possible_move?(destination)
+    new_x = destination[0]
+    new_y = destination[1]
+    !@board.board[new_x, new_y].taken?
   end
 
   def to_s
     "Name: #{name}, color: #{color}"
   end
 end
+
+# FIND A PLACE TO PUT THE PHONE WHEN CODING!
