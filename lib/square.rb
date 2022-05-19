@@ -28,6 +28,6 @@ class Square
   end
 
   def to_s
-    @color == 'black' ? gray2 : black2
+    @color == 'black' ? gray2(@piece) : black2(@piece)
   end
 end
