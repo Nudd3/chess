@@ -2,7 +2,7 @@
 
 # class representing pawns in a chess game
 class Piece
-  attr_accessor :position, :name, :color
+  attr_accessor :position, :name, :color, :moves
 
   # What does a pawn need?
   # 1. A name
@@ -13,7 +13,8 @@ class Piece
 
   def initialize(color, position, board)
     @color = color
-    @moves = []
+    @moves = "hell"
+    
     @position = position
     @board = board
   end
