@@ -7,11 +7,10 @@ require_relative 'pieces/rook'
 class Square
   include Miscellaneous
 
-  attr_accessor :taken, :piece, :coordinates
+  attr_accessor :piece
 
-  def initialize(color, coordinates)
+  def initialize(color)
     @color = color
-    @coordinates = coordinates
     @taken = false
   end
 
@@ -20,14 +19,11 @@ class Square
     @taken = true
   end
 
-  def remove_piece
-    @taken = false
-    temp = @piece
-    @piece = nil
-    temp
+  def taken?
+    @taken
   end
 
   def to_s
-    @color == 'black' ? gray2(@piece) : black2(@piece)
+    @color == 'blue' ? red(@piece) : blue(@piece)
   end
 end
