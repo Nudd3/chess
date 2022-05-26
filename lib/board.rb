@@ -20,7 +20,7 @@ class Board
     color = 1
     @board.each_index do |i|
       @board[i].each_index do |j|
-        @board[i][j] = color.odd? ? Square.new('gray', [i, j]) : Square.new('black', [i, j])
+        @board[i][j] = color.odd? ? Square.new('blue') : Square.new('red')
         color += 1
       end
       color += 1
