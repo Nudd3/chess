@@ -10,7 +10,6 @@ require_relative '../lib/pieces/bishop'
 
 # Game class
 class Game
-
   attr_accessor :board
 
   def initialize
@@ -18,9 +17,13 @@ class Game
     setup_game
   end
 
+  def play
+    # run
+  end
+
   def setup_game
     # create_players
-    fill_board
+    #fill_board
   end
 
   def fill_board
@@ -29,7 +32,7 @@ class Game
   end
 
   def add_white_pieces
-    (0..7).each { |i| @board.board[1][i].place_piece(Pawn.new('black', @board.board[1][i], @board)) }
+    (0..7).each { |i| @board.board[1][i].place_piece(Pawn.new('white', @board.board[1][i], @board)) }
     @board.board[0][3].place_piece(Queen.new('white', @board.board[0][3], @board))
     @board.board[0][4].place_piece(King.new('white', @board.board[0][4], @board))
     @board.board[0][0].place_piece(Rook.new('white', @board.board[0][0], @board))
@@ -41,7 +44,7 @@ class Game
   end
 
   def add_black_pieces
-    (0..7).each { |i| @board.board[6][i].place_piece(Pawn.new('white', @board.board[1][i], @board)) }
+    (0..7).each { |i| @board.board[6][i].place_piece(Pawn.new('black', @board.board[1][i], @board)) }
     @board.board[7][3].place_piece(Queen.new('black', @board.board[7][3], @board))
     @board.board[7][4].place_piece(King.new('black', @board.board[7][4], @board))
     @board.board[7][0].place_piece(Rook.new('black', @board.board[7][0], @board))
@@ -55,7 +58,4 @@ end
 
 g = Game.new
 puts g.board.print_board
-puts g.board.board[1][0].piece.moves
 
-puts 'asdsad'
-g.board.board[1].each { |i| print i}
